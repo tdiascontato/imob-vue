@@ -1,6 +1,7 @@
+<!--src/components/MainPage.vue-->
 <template>
   <div class="container">
-    <h1>Imob</h1>
+    <h1>Hair</h1>
     <div class="buttons" v-if="!isLoggedIn">
       <router-link to="/login">
         <button class="btn">Login</button>
@@ -9,6 +10,13 @@
         <button class="btn">Register</button>
       </router-link>
     </div>
+    <router-link to="/work/register" v-if="isLoggedIn">
+      <button class="btn">Work Register</button>
+    </router-link>
+    <br/>
+    <router-link to="/menu" v-if="isLoggedIn">
+      <button class="btn">Menu</button>
+    </router-link>
     <LogoutButton v-if="isLoggedIn"/>
   </div>
 </template>

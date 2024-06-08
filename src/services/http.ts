@@ -1,5 +1,5 @@
+// src/services/http.ts
 import axios from 'axios';
-import { useRouter } from 'vue-router'
 
 const api = axios.create({
   baseURL: 'http://localhost:3000',

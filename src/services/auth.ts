@@ -1,3 +1,4 @@
+// src/services/auth.ts
 export const useAuth = () => {
   const login = (token : string) => {
     localStorage.setItem('token', token);
