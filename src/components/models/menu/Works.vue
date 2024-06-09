@@ -1,9 +1,7 @@
-<!-- src/components/models/Menu.vue -->
+<!-- src/components/models/menu/Works.vue -->
 <template>
 
   <div>
-    <h1>Meus Trabalhos</h1>
-
     <div v-if="works.length === 0">Você não tem nenhum trabalho registrado.</div>
 
     <div v-else class="works-container">
