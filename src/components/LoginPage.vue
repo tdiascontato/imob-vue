@@ -1,4 +1,6 @@
+<!--src/components/LoginPage.vue-->
 <template>
+  <Header/>
   <div class="container">
     <h1>Login Page</h1>
     <form @submit.prevent="handleSubmit" class="form">
@@ -12,14 +14,7 @@
       </div>
       <button type="submit" class="btn">Login</button>
     </form>
-    <div class="buttons">
-      <router-link to="/">
-        <button class="btn">Home</button>
-      </router-link>
-      <router-link to="/register">
-        <button class="btn">Register</button>
-      </router-link>
-    </div>
+
   </div>
 </template>
 
@@ -28,6 +23,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import api from '@/services/http';
 import { useAuth } from '@/services/auth';
+import Header from '@/components/models/updown/Header.vue'
 
 const email = ref('');
 const password = ref('');
@@ -95,7 +91,4 @@ input {
   background-color: #358a6d;
 }
 
-.buttons {
-  margin-top: 20px;
-}
 </style>

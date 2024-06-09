@@ -56,7 +56,7 @@ const handleSubmit = async () => {
   if (!image.value) return;
 
   new Compressor(image.value, {
-    quality: 0.2,
+    quality: 0.1,
     success: async (compressedResult) => {
       const formData = new FormData();
       formData.append('title', title.value);

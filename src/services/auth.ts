@@ -1,17 +1,28 @@
 // src/services/auth.ts
-export const useAuth = () => {
-  const login = (token : string) => {
-    localStorage.setItem('token', token);
-    window.dispatchEvent(new Event('storage'));
-  };
+import { ref } from 'vue';
 
-  const logout = () => {
-    localStorage.removeItem('token');
-    window.dispatchEvent(new Event('storage'));
-  };
+const token = ref<string | null>(null);
 
+const login = (newToken: string) => {
+  token.value = newToken;
+  localStorage.setItem('token', newToken);
+  window.dispatchEvent(new Event('storage'));
+};
+
+const logout = () => {
+  token.value = null;
+  localStorage.removeItem('token');
+  window.dispatchEvent(new Event('storage'));
+};
+
+const getToken = () => token.value;
+
+const useAuth = () => {
   return {
     login,
     logout,
+    getToken,
   };
 };
+
+export { useAuth };
