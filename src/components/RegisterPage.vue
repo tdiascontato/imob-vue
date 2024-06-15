@@ -1,35 +1,30 @@
 <!--src/components/RegisterPage.vue-->
 <template>
-  <Header/>
-  <div class="container">
+
+  <Header />
+
+  <div class="content">
+
     <h1>Register Page</h1>
 
     <form @submit.prevent="handleSubmit" class="form">
 
-      <div class="form-group">
-        <label for="name">Nome:</label>
-        <input type="text" id="name" v-model="name" required />
-      </div>
+      <label for="name">Nome:</label>
+      <input type="text" id="name" v-model="name" required />
 
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" v-model="email" required />
-      </div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" v-model="email" required />
 
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" v-model="password" required />
-      </div>
 
-      <div class="form-group">
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" v-model="confirmPassword" required />
-      </div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" v-model="password" required />
 
-      <div class="form-group">
-        <label for="profileImage">Imagem de Perfil:</label>
-        <input type="file" id="profileImage" @change="handleImageUpload" />
-      </div>
+
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" v-model="confirmPassword" required />
+
+      <label for="profileImage">Imagem de Perfil:</label>
+      <input type="file" id="profileImage" @change="handleImageUpload" />
 
       <button type="submit" class="btn">Register</button>
     </form>
@@ -37,13 +32,61 @@
   </div>
 </template>
 
+<style scoped>
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  background: #d43c3c;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+label {
+  padding: 0.5rem;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #fa7025;
+  color: white;
+  font-size: medium;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.btn:hover {
+  background-color: #ff5b00;
+  color: black;
+  transition: 0.5s ease;
+}
+</style>
+
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import api from '@/services/http';
 import { useAuth } from '@/services/auth';
-import Header from '@/components/models/updown/Header.vue';
 import Compressor from 'compressorjs';
+import Header from '@/components/models/navbar/Header.vue'
 
 const name = ref('');
 const email = ref('');
@@ -106,51 +149,3 @@ const handleSubmit = async () => {
   }
 };
 </script>
-
-<style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  margin-bottom: 5px;
-}
-
-input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 300px;
-}
-
-.btn {
-  padding: 10px 20px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 5px;
-  background-color: #42b983;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #358a6d;
-}
-</style>

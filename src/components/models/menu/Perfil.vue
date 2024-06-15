@@ -2,35 +2,84 @@
 <template>
   <div class="profile-container">
 
-    <h2>Perfil do Usuário</h2>
+    <h1 class="title-perfil">Perfil do Usuário</h1>
 
     <form @submit.prevent="handleSubmit">
-      <div class="form-group">
-        <label for="profileImage">Imagem de Perfil:</label>
-        <img :src="user.image" alt="Imagem de Perfil" v-if="user.image" class="profile-image-preview"/>
-        <input type="file" id="profileImage" @change="handleImageUpload" />
-      </div>
-      <div class="form-group">
-        <label for="name">Nome:</label>
-        <input type="text" id="name" v-model="user.name" required />
-      </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" v-model="user.email" required />
-      </div>
-      <div class="form-group">
-        <label for="password">Nova Senha:</label>
-        <input type="password" id="password" v-model="password" />
-      </div>
-      <div class="form-group">
-        <label for="confirmPassword">Confirme a Nova Senha:</label>
-        <input type="password" id="confirmPassword" v-model="confirmPassword" />
-      </div>
+      <label for="profileImage">Imagem de Perfil:</label>
+      <img :src="user.image" alt="Imagem de Perfil" v-if="user.image" class="profile-image-preview"/>
+      <input type="file" id="profileImage" @change="handleImageUpload" />
+
+      <label for="name">Nome:</label>
+      <input type="text" id="name" v-model="user.name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" v-model="user.email" required />
+
+      <label for="password">Nova Senha:</label>
+      <input type="password" id="password" v-model="password" />
+
+      <label for="confirmPassword">Confirme a Nova Senha:</label>
+      <input type="password" id="confirmPassword" v-model="confirmPassword" />
+
       <button type="submit">Salvar</button>
     </form>
+
     <button @click="deleteAccount" class="delete-btn">Excluir Conta</button>
   </div>
+
 </template>
+
+<style scoped>
+.profile-container {
+  display: flex;
+  height: 100%;
+  position: relative;
+
+}
+
+.profile-image-preview {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.title-perfil{
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4264b9;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #283b6a;
+}
+
+.delete-btn {
+  background-color: #ff4b4b;
+}
+
+.delete-btn:hover {
+  background-color: #d43c3c;
+}
+</style>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
@@ -125,58 +174,3 @@ const deleteAccount = async () => {
   }
 };
 </script>
-
-<style scoped>
-.profile-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-}
-
-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #4264b9;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #283b6a;
-}
-
-.delete-btn {
-  background-color: #ff4b4b;
-}
-
-.delete-btn:hover {
-  background-color: #d43c3c;
-}
-
-.profile-image-preview {
-  max-width: 100px;
-  max-height: 100px;
-  margin-top: 10px;
-}
-</style>
