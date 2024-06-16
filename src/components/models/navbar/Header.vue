@@ -56,8 +56,8 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f57732;
-  border-bottom: #250000 0.1rem solid;
+  background: #000;
+  border-bottom: #f57732 0.1rem solid;
   padding: 0 2rem;
 }
 
@@ -82,7 +82,7 @@ onMounted(() => {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.4rem;
-  background-color: rgba(37, 0, 0, 0.8);
+  background-color: #f57732;
   color: white;
   cursor: pointer;
   font-size: medium;

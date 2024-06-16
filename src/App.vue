@@ -16,7 +16,6 @@ html, body, .app {
   padding: 0;
   height: 100vh;
   width: 100%;
-  background-color: #616a28;
   overflow: hidden;
   box-sizing: border-box;
 }

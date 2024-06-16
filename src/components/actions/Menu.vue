@@ -43,7 +43,6 @@ onMounted(() => userProfile());
 
 <template>
   <div class="container_menu">
-    <h1 class="title-menu">{{ userName }}</h1>
     <ul class="menu_list">
       <li class="menu_item" v-for="item in menuItems" :key="item.name" @click="selectMenuItem(item.name)">
         {{ item.name }}
@@ -63,12 +62,8 @@ onMounted(() => userProfile());
   padding: 1rem;
   flex: 1;
   overflow-y: auto;
-}
 
-.title-menu {
-  color: black;
 }
-
 .menu_list {
   display: flex;
   list-style: none;
@@ -76,14 +71,13 @@ onMounted(() => userProfile());
   margin: 0;
   gap: 2rem;
 }
-
 .menu_item {
   padding: 0.5rem 1rem;
   cursor: pointer;
   text-align: center;
   border-radius: 0.4rem;
+  font-size: large;
 }
-
 .menu_item:hover {
   background-color: #f57732;
 }

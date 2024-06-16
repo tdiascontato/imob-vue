@@ -33,7 +33,7 @@ onUnmounted(() => {
     <Header />
     <div class="content-wrapper">
       <Menu v-if="isModalVisible" />
-      <Dashboard v-if="!isModalVisible" class="content" :class="{ blur: isModalVisible }" />
+      <Dashboard v-if="!isModalVisible" :class="{ blur: isModalVisible }" />
     </div>
   </main>
 </template>
@@ -45,23 +45,15 @@ onUnmounted(() => {
   position: relative;
   margin: 0 auto;
   height: 100vh;
-  background: #e5d7d7;
+  background: rgba(253, 243, 238, 0.49);
 }
 
 .content-wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden
 }
 
-.content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.content.blur {
-  filter: blur(5px);
-  pointer-events: none;
-}
 </style>

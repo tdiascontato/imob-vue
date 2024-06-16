@@ -1,18 +1,24 @@
+<!--src/components/models/menu/Dashboard.vue-->
 <template>
-  <h1 class="title-dashboard">Dashboard - {{ userName }}</h1>
 
   <main class="container-dashboard">
-    <img class="user-image" :src="userImage" alt="Imagem do Usuário" />
+
+    <div class="column-dashboard">
+      <h2 class="title-dashboard">Olá, {{ userName }} :)</h2>
+      <img class="user-image" :src="userImage" alt="{{userName}}" />
+    </div>
 
     <div class="dashboard">
       <div class="dashboard-itens" v-if="works.length" v-for="work in works" :key="work._id">
-        <img :src="work.image" alt="Imagem do Trabalho" />
+        <img :src="work.image" alt="{{work.title}}" />
         <div class="itens-description">
+          <p>{{ work.title }}</p>
           <p>{{ work.description }}</p>
           <p>R${{ work.price }}</p>
         </div>
       </div>
     </div>
+
   </main>
 </template>
 
@@ -20,58 +26,55 @@
 .title-dashboard{
   display: flex;
   justify-content: center;
-  color: #fff;
 }
 .container-dashboard{
   display: flex;
+  width: 80%;
   align-items: start;
   justify-content: center;
-  gap: 15%;
+  gap: 10%;
 
 }
 .user-image{
-  height: 12rem;
-  width: 11rem;
-  border: 0.1rem solid #780101;
-  padding: 0.1rem;
-  border-radius: 0.3rem;
+  max-height: 20rem;
+  max-width: 14rem;
+  border-radius: 0.5rem;
   cursor: pointer;
-  transition: 0.5s ease;
-}
-.user-image:hover {
-  border: 0.1rem solid #fff;
-  transition: 0.5s ease;
 }
 .dashboard{
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 .dashboard-itens{
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
+  background-color: #ffede2;
+  border-radius: 0.5rem;
+  transition: 0.5s ease;
+}
+.dashboard-itens:hover{
+  background: #fff;
+  transition: 0.5s ease;
 }
 .dashboard-itens img{
   height: 9rem;
   width: 9rem;
-  border: 0.1rem solid #fff;
+  border: none;
   border-radius: 0.5rem;
   padding: 0.1rem;
+  opacity: 0.9;
+  transition: 0.5s ease;
   cursor: pointer;
-  opacity: 0.7;
-  transition: 0.5s ease;
-}
-.dashboard-itens img:hover{
-  border: 0.1rem solid #780101;
-  opacity: 1;
-  transition: 0.5s ease;
 }
 .itens-description{
   text-align: center;
-  color: #780101;
-  padding: 0.3rem;
-  cursor: default;
+  overflow: hidden;
+  font-size: small;
+  text-transform: uppercase;
+  color: #000;
+  padding: 0.1rem;
+  cursor: pointer;
 }
 
 

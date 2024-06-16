@@ -2,29 +2,21 @@
 <template>
   <div class="work-register">
 
-    <h2>Registro de Trabalho</h2>
+    <h3>Registro de Trabalho</h3>
 
     <form @submit.prevent="handleSubmit">
 
-      <div class="form-group">
-        <label for="title">Título:</label>
-        <input type="text" id="title" v-model="work.title" required />
-      </div>
+      <label for="title">Título:</label>
+      <input type="text" id="title" v-model="work.title" required />
 
-      <div class="form-group">
-        <label for="description">Descrição:</label>
-        <textarea id="description" v-model="work.description" required></textarea>
-      </div>
+      <label for="description">Descrição:</label>
+      <textarea id="description" v-model="work.description" required></textarea>
 
-      <div class="form-group">
-        <label for="image">Imagem:</label>
-        <input type="file" id="image" @change="handleImageUpload" required />
-      </div>
+      <label for="image">Imagem:</label>
+      <input type="file" id="image" @change="handleImageUpload" required />
 
-      <div class="form-group">
-        <label for="price">Preço:</label>
-        <input type="number" id="price" v-model="work.price" required />
-      </div>
+      <label for="price">Preço:</label>
+      <input type="number" id="price" v-model="work.price" required />
 
       <button type="submit">Registrar</button>
 
@@ -37,27 +29,29 @@
 .work-register {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 18rem;
+  text-align: center;
+}
+.work-register h3{
+  font-size: large;
+}
+form{
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
-
-.form-group {
-  margin-bottom: 15px;
+form label{
+  margin-bottom: 0.5rem;
+  font-size: large;
 }
-
-.form-group label {
-  margin-bottom: 5px;
-  font-weight: bold;
+form input, form textarea{
+  font-size: medium;
+  border: none;
+  height: 2rem;
+  border-radius: 0.3rem;
+  margin-bottom: 0.5rem;
 }
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 8px;
-}
-
 button {
   display: inline-block;
   padding: 10px 20px;
@@ -70,21 +64,6 @@ button {
 
 button:hover {
   background-color: #283b6a;
-}
-
-.btn {
-  padding: 10px 20px;
-  margin: 0 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #42b983;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #358a6d;
 }
 </style>
 
@@ -117,7 +96,7 @@ const handleSubmit = async () => {
   if (!image.value) return;
 
   new Compressor(image.value, {
-    quality: 0.1,
+    quality: 0.3,
     success: async (compressedResult) => {
       const formData = new FormData();
       formData.append('title', work.value.title as string);

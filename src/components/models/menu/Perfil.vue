@@ -2,8 +2,6 @@
 <template>
   <div class="profile-container">
 
-    <h1 class="title-perfil">Perfil do Usuário</h1>
-
     <form @submit.prevent="handleSubmit">
       <label for="profileImage">Imagem de Perfil:</label>
       <img :src="user.image" alt="Imagem de Perfil" v-if="user.image" class="profile-image-preview"/>
@@ -32,18 +30,14 @@
 <style scoped>
 .profile-container {
   display: flex;
-  height: 100%;
-  position: relative;
-
+  padding-top: 2rem;
+  gap: 2rem;
 }
 
 .profile-image-preview {
-  max-width: 100px;
-  max-height: 100px;
-}
-
-.title-perfil{
-  text-align: center;
+  max-width: 8.5rem;
+  max-height: 9rem;
+  border-radius: 0.5rem;
 }
 
 label {
@@ -60,24 +54,32 @@ input {
 
 button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
   background-color: #4264b9;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.3rem;
   cursor: pointer;
+  transition: 0.5s ease;
 }
 
 button:hover {
-  background-color: #283b6a;
+  transition: 0.5s ease;
+  background-color: #0338BCFF;
 }
 
 .delete-btn {
+  height: 8rem;
+  width: 8rem;
   background-color: #ff4b4b;
+  border: 0.1rem solid #780101;
+  transition: 0.5s ease;
 }
 
 .delete-btn:hover {
-  background-color: #d43c3c;
+  transition: 0.5s ease;
+  background-color: #f50101;
 }
 </style>
 
