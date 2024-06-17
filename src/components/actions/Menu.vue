@@ -38,7 +38,10 @@ const userProfile = async () => {
   }
 };
 
-onMounted(() => userProfile());
+onMounted(() => {
+  userProfile();
+  selectedComponent.value = Dashboard;
+});
 </script>
 
 <template>

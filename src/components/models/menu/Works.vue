@@ -53,7 +53,7 @@
   background-color: #ffede2;
   padding: 0.1rem;
   max-width: 15rem;
-  max-height: 19rem;
+  max-height: max-content;
   transition: 0.5s ease;
 }
 .work-card:hover{
@@ -77,9 +77,10 @@
 }
 .text-card{
   text-align: center;
-  font-size: large;
+  font-size: medium;
   border: none;
-  overflow: hidden;
+  overflow: scroll;
+  scrollbar-width: none;
   border-radius: 0.5rem;
   background: transparent;
 }

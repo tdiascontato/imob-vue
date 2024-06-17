@@ -3,7 +3,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import Header from '@/components/models/navbar/Header.vue';
 import Menu from '@/components/actions/Menu.vue';
-import Dashboard from '@/components/models/menu/Dashboard.vue';
+import Mall from '@/components/Mall.vue'
 
 const isLoggedIn = ref(false);
 const isModalVisible = ref(false);
@@ -33,7 +33,8 @@ onUnmounted(() => {
     <Header />
     <div class="content-wrapper">
       <Menu v-if="isModalVisible" />
-      <Dashboard v-if="!isModalVisible" :class="{ blur: isModalVisible }" />
+      <!--      Componente show     -->
+      <Mall v-if="!isModalVisible" :class="{ blur: isModalVisible }" />
     </div>
   </main>
 </template>
@@ -42,18 +43,15 @@ onUnmounted(() => {
 .container {
   display: flex;
   flex-direction: column;
-  position: relative;
   margin: 0 auto;
   height: 100vh;
   background: rgba(253, 243, 238, 0.49);
 }
-
 .content-wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  overflow-x: hidden
+  overflow-x: hidden;
 }
-
 </style>

@@ -4,7 +4,7 @@
   <main class="container-dashboard">
 
     <div class="column-dashboard">
-      <h2 class="title-dashboard">Olá, {{ userName }} :)</h2>
+      <h1 class="title-dashboard">Olá, {{ userName }} :)</h1>
       <img class="user-image" :src="userImage" alt="{{userName}}" />
     </div>
 
@@ -13,7 +13,7 @@
         <img :src="work.image" alt="{{work.title}}" />
         <div class="itens-description">
           <p>{{ work.title }}</p>
-          <p>{{ work.description }}</p>
+          <p>{{ work.description.substring(0, 100) }}...</p>
           <p>R${{ work.price }}</p>
         </div>
       </div>
@@ -23,17 +23,18 @@
 </template>
 
 <style scoped>
-.title-dashboard{
-  display: flex;
-  justify-content: center;
-}
 .container-dashboard{
   display: flex;
-  width: 80%;
   align-items: start;
   justify-content: center;
+  padding: 5%;
   gap: 10%;
-
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.title-dashboard{
+  text-align: center;
+  cursor: default;
 }
 .user-image{
   max-height: 20rem;
@@ -44,6 +45,9 @@
 .dashboard{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   gap: 1rem;
 }
 .dashboard-itens{
@@ -54,7 +58,7 @@
   transition: 0.5s ease;
 }
 .dashboard-itens:hover{
-  background: #fff;
+  background: #f57732;
   transition: 0.5s ease;
 }
 .dashboard-itens img{

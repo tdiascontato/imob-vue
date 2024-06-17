@@ -70,10 +70,12 @@ button:hover {
 }
 
 .delete-btn {
-  height: 8rem;
-  width: 8rem;
+  height: 5.5rem;
+  width: 6em;
+  text-align: center;
   background-color: #ff4b4b;
   border: 0.1rem solid #780101;
+  border-radius: 1rem;
   transition: 0.5s ease;
 }
 
