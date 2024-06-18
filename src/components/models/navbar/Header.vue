@@ -58,6 +58,7 @@ onMounted(() => {
   align-items: center;
   background: #000;
   border-bottom: #f57732 0.1rem solid;
+  border-radius: 2rem;
   padding: 0 2rem;
 }
 

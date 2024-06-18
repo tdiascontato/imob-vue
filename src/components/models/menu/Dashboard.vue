@@ -9,7 +9,7 @@
     </div>
 
     <div class="dashboard">
-      <div class="dashboard-itens" v-if="works.length" v-for="work in works" :key="work._id">
+      <div class="dashboard-itens" v-if="works.length" v-for="work in works.slice(0, 2)" :key="work._id">
         <img :src="work.image" alt="{{work.title}}" />
         <div class="itens-description">
           <p>{{ work.title }}</p>
@@ -55,6 +55,7 @@
   align-items: center;
   background-color: #ffede2;
   border-radius: 0.5rem;
+  max-width: 25rem;
   transition: 0.5s ease;
 }
 .dashboard-itens:hover{

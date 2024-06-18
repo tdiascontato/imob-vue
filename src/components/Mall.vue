@@ -2,13 +2,24 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import type { Work } from '@/interfaces/interface';
-import api from '@/services/http'
+import api from '@/services/http';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
 
 const works = ref<Work[]>([]);
+
+const shuffleArray = (array: Work[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+};
+
 const fetchWorks = async () => {
   try {
     const response = await api.get('/mall');
     works.value = response.data.works;
+    shuffleArray(works.value);
   } catch (error) {
     console.error('Failed to fetch works:', error);
   }
@@ -16,27 +27,33 @@ const fetchWorks = async () => {
 onMounted(() => {
   fetchWorks();
 });
+const swiperOptions = {
+  slidesPerView: 'auto',
+  spaceBetween: 2,
+  loop: true,
+  autoplay: {
+    delay: 1000,
+    disableOnInteraction: true,
+  },};
 </script>
 
 <template>
-  <div class="mall-container">
-
-    <div class="work-card" v-for="work in works" :key="work._id">
+  <Swiper :options="swiperOptions" class="mall-container">
+    <SwiperSlide class="work-card" v-for="work in works" :key="work._id">
       <img :src="work.image" :alt="work.title" class="work-image" />
       <div class="work-details">
         <h2>{{ work.title }}</h2>
-        <p>{{ work.description }}</p>
         <p>R${{ work.price }}</p>
       </div>
-    </div>
-
-  </div>
+    </SwiperSlide>
+  </Swiper>
 </template>
 
 <style scoped>
 .mall-container {
   display: flex;
   flex-wrap: wrap;
+  max-width: 80%;
   gap: 2rem;
   justify-content: center;
   padding: 2rem;
@@ -44,41 +61,49 @@ onMounted(() => {
   scrollbar-width: none;
 }
 .work-card {
+  position: relative;
   background-color: #ffede2;
   border: 0.1rem solid #f57732;
   border-radius: 0.5rem;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  cursor: pointer;
-  width: 10rem;
+  max-width: 12rem;
   max-height: 20rem;
-  opacity: 0.95;
+  cursor: pointer;
+  overflow: hidden;
   transition: transform 0.5s ease;
+  z-index: 2;
+  margin: 2rem;
 }
-.work-card:hover {
+.work-card:hover .work-image {
+  filter: blur(5px);
+}
+.work-card:hover .work-details {
   opacity: 1;
-  transform: scale(1.05);
 }
 .work-image {
-  height: 15rem;
-  width: 10rem;
+  height: 100%;
+  width: 100%;
+  transition: filter 0.5s ease;
 }
 .work-details {
+  width: 100%;
+  height: 100%;
+  top: 0;
+
   display: flex;
   flex-direction: column;
-  padding: 0.2rem;
   justify-content: center;
   align-items: center;
-  text-align: justify;
-}
 
-.work-details h2 {
-  margin: 0.5rem 0;
-  font-size: 1.5rem;
-}
+  z-index: 3;
+  position: absolute;
 
-.work-details p {
-  margin: 0.25rem 0;
-  color: #555;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  opacity: 0;
+
+  text-align: center;
+  font-size: large;
+
+  transition: opacity 0.5s ease;
 }
 </style>

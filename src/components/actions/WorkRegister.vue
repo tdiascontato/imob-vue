@@ -7,16 +7,16 @@
     <form @submit.prevent="handleSubmit">
 
       <label for="title">Título:</label>
-      <input type="text" id="title" v-model="work.title" required />
+      <input type="text" class="form-back"id="title" v-model="work.title" required />
 
       <label for="description">Descrição:</label>
-      <textarea id="description" v-model="work.description" required></textarea>
+      <textarea class="form-back" id="description" v-model="work.description" required></textarea>
 
       <label for="image">Imagem:</label>
       <input type="file" id="image" @change="handleImageUpload" required />
 
       <label for="price">Preço:</label>
-      <input type="number" id="price" v-model="work.price" required />
+      <input type="number" class="form-back" id="price" v-model="work.price" required />
 
       <button type="submit">Registrar</button>
 
@@ -52,6 +52,9 @@ form input, form textarea{
   border-radius: 0.3rem;
   margin-bottom: 0.5rem;
 }
+.form-back{
+  background: rgba(248, 204, 179, 0.45);
+ }
 button {
   display: inline-block;
   padding: 10px 20px;
@@ -61,7 +64,6 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
-
 button:hover {
   background-color: #283b6a;
 }
@@ -96,7 +98,7 @@ const handleSubmit = async () => {
   if (!image.value) return;
 
   new Compressor(image.value, {
-    quality: 0.3,
+    quality: 0.5,
     success: async (compressedResult) => {
       const formData = new FormData();
       formData.append('title', work.value.title as string);
