@@ -1,9 +1,9 @@
-<!--src/components/MainPage.vue-->
+<!-- src/components/MainPage.vue -->
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import Header from '@/components/models/navbar/Header.vue';
 import Menu from '@/components/actions/Menu.vue';
-import Mall from '@/components/Mall.vue'
+import Mall from '@/components/Mall.vue';
 
 const isLoggedIn = ref(false);
 const isModalVisible = ref(false);
@@ -21,6 +21,7 @@ onMounted(() => {
   updateModalState();
   window.addEventListener('storage', checkLoginStatus);
   window.addEventListener('toggle-modal', updateModalState);
+  localStorage.removeItem('searchResults');
 });
 onUnmounted(() => {
   window.removeEventListener('storage', updateModalState);
@@ -35,6 +36,12 @@ onUnmounted(() => {
       <Menu v-if="isModalVisible" />
       <!--      Componente show     -->
       <Mall v-if="!isModalVisible" :class="{ blur: isModalVisible }" />
+    <div v-if="isLoggedIn && !isModalVisible" class="premium-section">
+      <img src="/premium.gif" alt="Premium Membership" />
+      <h2>50 coins de bônus na primeira assinatura!</h2>
+      <img src="/ssl.png" alt="Página verificada" />
+
+    </div>
     </div>
   </main>
 </template>
@@ -52,5 +59,22 @@ onUnmounted(() => {
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
+}
+.premium-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  height: fit-content;
+}
+.premium-section h2 {
+  color: #250000;
+  width: 15rem;
+  text-align: inherit;
+}
+.premium-section img {
+  width: 100%;
+  max-width: 5rem;
 }
 </style>

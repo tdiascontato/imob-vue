@@ -34,6 +34,7 @@ const userProfile = async () => {
     const response = await api.get('/user/perfil');
     userName.value = response.data.user.name;
   } catch (error) {
+    alert('Erro com Token!'+ error);
     console.error('Failed to fetch user profile:', error);
   }
 };

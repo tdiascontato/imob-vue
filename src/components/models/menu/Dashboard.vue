@@ -108,6 +108,7 @@ const userProfile = async () => {
     userImage.value = response_user.data.user.image;
     works.value = response_works.data.works;
   } catch (error) {
+    alert('Erro com Token!'+ error);
     console.error('Failed to fetch user profile and works:', error);
   }
 };

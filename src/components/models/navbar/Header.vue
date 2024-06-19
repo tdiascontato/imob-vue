@@ -1,8 +1,12 @@
 <!-- src/components/models/navbar/Header.vue -->
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue'
+import { useRouter } from 'vue-router';
+import api from '@/services/http'
 
 const isLoggedIn = ref(false);
+const searchQuery = ref('');
+const router = useRouter();
 
 const checkLoginStatus = () => {
   isLoggedIn.value = !!localStorage.getItem('token');
@@ -21,17 +25,38 @@ const handleLogout = () => {
   window.location.reload();
 };
 
+const handleSearch = async () => {
+  if (searchQuery.value.trim()) {
+    try {
+      const response = await api.post(`/search`, { title: searchQuery.value });
+      localStorage.setItem('searchResults', JSON.stringify(response.data.works));
+      await router.push('/search');
+    } catch (error) {
+      console.error('Erro ao realizar a pesquisa:', error);
+    }
+  }
+};
+
 onMounted(() => {
   checkLoginStatus();
   window.addEventListener('storage', checkLoginStatus);
 });
+
 </script>
 
 <template>
   <header class="header">
-    <router-link to="/" class="title-link">
-      <div class="title">Hair</div>
+    <router-link class="title" to="/" >
+      Rio Hair
     </router-link>
+
+    <input
+      v-model="searchQuery"
+      class="search"
+      placeholder="O que procura?"
+      type="search"
+      @keyup.enter="handleSearch"
+    />
 
     <nav class="nav">
       <router-link to="/login" v-if="!isLoggedIn">
@@ -60,26 +85,29 @@ onMounted(() => {
   border-radius: 2rem;
   padding: 0 2rem;
   margin: 0.3rem;
-
 }
-
 .title {
   font-size: x-large;
   font-weight: bold;
   color: white;
-}
-
-.title-link {
   text-decoration: none;
-  color: inherit;
 }
+.search{
+  padding: 0.5rem;
+  background: rgba(245, 119, 50, 0.51);
+  color: white;
 
+  border: none;
+  border-radius: 0.5rem;
+
+  width: 50%;
+  height: 2.5rem;
+}
 .nav {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-
 .btn {
   padding: 0.5rem 1rem;
   border: none;
@@ -90,18 +118,15 @@ onMounted(() => {
   font-size: medium;
   transition: 0.5s ease;
 }
-
 .btn.logout {
   background-color: #fff;
   color: #250000;
   transition: 0.5s ease;
 }
-
 .btn.logout:hover {
   background: #780101;
   color: white;
 }
-
 .btn:hover {
   background-color: #843002;
 }

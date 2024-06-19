@@ -3,7 +3,6 @@ body {
     padding: 0;
     height: 100vh;
     width: 100%;
-    overflow: hidden;
     box-sizing: border-box;
-    background: rgba(204, 204, 204, 0.8);
+    background: rgba(221, 255, 254, 0.8);
 }

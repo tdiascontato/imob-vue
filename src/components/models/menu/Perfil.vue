@@ -30,14 +30,17 @@
 <style scoped>
 .profile-container {
   display: flex;
-  padding-top: 2rem;
+  padding: 2rem;
   gap: 2rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  background: #f57732;
 }
 
 .profile-image-preview {
   max-width: 12rem;
   max-height: 20rem;
-  border-radius: 0.5rem;
+  border-radius: 1.5rem;
 }
 
 label {
@@ -74,7 +77,7 @@ button:hover {
   width: 6em;
   text-align: center;
   background-color: #ff4b4b;
-  border: 0.1rem solid #780101;
+  border: 0.1rem solid #ffffff;
   border-radius: 1rem;
   transition: 0.5s ease;
 }
@@ -109,6 +112,7 @@ onMounted(async () => {
     user.value = response.data.user;
     console.log(user.value)
   } catch (error) {
+    alert('Erro com Token!'+ error);
     console.error('Erro ao carregar perfil:', error);
   }
 });
@@ -172,7 +176,8 @@ const deleteAccount = async () => {
   try {
     await api.delete('/user/delete');
     logout();
-    router.push('/');
+    localStorage.removeItem('menuModal');
+    window.location.href = '/';
   } catch (error) {
     console.error('Erro ao excluir conta:', error);
   }

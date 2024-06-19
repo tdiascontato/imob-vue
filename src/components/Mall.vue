@@ -9,6 +9,8 @@ import { EffectCoverflow, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/autoplay';
+import number = CSS.number
+import { toNumber } from '@vue/shared'
 
 const works = ref<Work[]>([]);
 
@@ -29,6 +31,10 @@ const fetchWorks = async () => {
   }
 };
 
+const formatPrice = (price: number) => {
+  return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(price);
+};
+
 onMounted(() => {
   fetchWorks();
 });
@@ -47,16 +53,32 @@ onMounted(() => {
     class="mall-container"
   >
     <SwiperSlide class="work-card" v-for="work in works" :key="work._id">
-      <img :src="work.image" :alt="work.title" class="work-image" />
-      <div class="work-details">
-        <h2>{{ work.title }}</h2>
-        <p>R${{ work.price }}</p>
+      <div class="card-content">
+        <img :src="work.image" :alt="work.title" class="work-image" />
+        <div class="work-details">
+          <h2>{{ work.title }}</h2>
+          <p>
+            R${{ work.price }}
+             ou
+            {{ toNumber(work.price) - 20}}
+            <img src="/coin.png" alt="Coin" class="coin-svg"/>
+
+          </p>
+        </div>
       </div>
     </SwiperSlide>
   </Swiper>
 </template>
 
 <style scoped>
+.swiper {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.swiper-slide {
+  width: 15rem;
+}
 .mall-container {
   display: flex;
   justify-content: center;
@@ -66,62 +88,47 @@ onMounted(() => {
   max-height: 25rem;
   max-width: 100%;
 }
-
-.swiper {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.swiper-slide {
-  width: 15rem;
-}
-
-.swiper-slide img {
-  width: 100%;
-  height: 100%;
-}
-
-.work-card {
+.card-content {
   position: relative;
+  width: 100%;
+  height: 25rem;
+}
+.work-card {
   border: none;
   border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(245, 119, 50, 0.5);
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.5s ease;
-  z-index: 2;
+  height: max-content;
 }
-
-.work-card:hover .work-image {
-  filter: blur(5px);
+.work-card:hover{
+  box-shadow: 0 1rem 1rem rgba(245, 88, 2, 0.5);
 }
-
-.work-card:hover .work-details {
-  opacity: 1;
-}
-
 .work-image {
-  height: 100%;
   width: 100%;
-  transition: filter 0.5s ease;
+  height: 100%;
+  object-fit: cover;
 }
-
 .work-details {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  height: 100%;
-  top: 0;
+  height: 33%;
+  background-color: rgba(0, 0, 0, 0.6); /* Background similar to work-details */
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 3;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  opacity: 0;
   text-align: center;
   font-size: large;
-  transition: opacity 0.5s ease;
+}
+.work-details h2,
+.work-details p {
+  margin: 0;
+}
+.coin-svg{
+  width: 1rem;
+  margin: 0 auto;
 }
 </style>

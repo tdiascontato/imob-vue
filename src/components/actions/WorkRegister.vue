@@ -115,8 +115,7 @@ const handleSubmit = async () => {
           }
         });
         console.log(response.data);
-        router.push('/');
-
+        window.location.href = '/';
       } catch (error) {
         console.error('Fail Send Register', error);
       }
