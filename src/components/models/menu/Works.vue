@@ -48,17 +48,18 @@
 .work-card {
   display: flex;
   flex-direction: column;
-  border: 0.1rem solid #fff;
+  border: none;
   border-radius: 0.5rem;
   background-color: #ffede2;
   padding: 0.1rem;
   max-width: 15rem;
   max-height: max-content;
-  transition: 0.5s ease;
+  transition: 0.8s ease;
 }
 .work-card:hover{
-  background: #fff;
-  transition: 0.5s ease;
+  background: #f57732;
+  border: 0.1rem solid white;
+  transition: 0.8s ease;
 }
 .work-card img{
   max-width: 15rem;
@@ -73,7 +74,8 @@
   text-align: center;
 }
 .file-card{
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
 }
 .text-card{
   text-align: center;

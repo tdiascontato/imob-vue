@@ -30,32 +30,6 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import api from '@/services/http';
-import { useRouter } from 'vue-router';
-import { useAuth } from '@/services/auth';
-
-const user = ref({
-  name: '',
-  email: '',
-  image: ''
-});
-
-onMounted(async () => {
-  try {
-    const response = await api.get('/user/perfil');
-    user.value = response.data.user;
-  } catch (error) {
-    console.error('Erro ao carregar perfil:', error);
-  }
-});
-
-const redirectToSubscription = () => {
-  console.log('Redirecionando para a página de assinatura premium...');
-};
-</script>
-
 <style scoped>
 .premium-container {
   display: flex;
@@ -85,7 +59,7 @@ const redirectToSubscription = () => {
   width: 300px;
 }
 .subscription-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-0.5rem);
 }
 .card-content {
   text-align: center;
@@ -98,15 +72,15 @@ const redirectToSubscription = () => {
   border-radius: 1rem;
 }
 .card-content p {
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: medium;
+  line-height: 1.2;
 }
 .advantages {
-  margin-top: 15px;
+  margin-top: 0.5rem;
 }
 .advantages h3 {
-  font-size: 16px;
-  margin-bottom: 5px;
+  font-size: large;
+  margin-bottom: 0.5rem;
 }
 .advantages ul {
   list-style-type: none;
@@ -132,3 +106,29 @@ button:hover {
   background-color: #0056b3;
 }
 </style>
+
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import api from '@/services/http';
+import { useRouter } from 'vue-router';
+import { useAuth } from '@/services/auth';
+
+const user = ref({
+  name: '',
+  email: '',
+  image: ''
+});
+
+onMounted(async () => {
+  try {
+    const response = await api.get('/user/perfil');
+    user.value = response.data.user;
+  } catch (error) {
+    console.error('Erro ao carregar perfil:', error);
+  }
+});
+
+const redirectToSubscription = () => {
+  console.log('Redirecionando para a página de assinatura premium...');
+};
+</script>

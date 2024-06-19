@@ -30,7 +30,7 @@
 <style scoped>
 .profile-container {
   display: flex;
-  padding: 2rem;
+  padding: 1rem;
   gap: 2rem;
   margin-top: 1rem;
   border-radius: 1rem;
@@ -41,6 +41,7 @@
   max-width: 12rem;
   max-height: 20rem;
   border-radius: 1.5rem;
+  border: 0.2rem solid white;
 }
 
 label {
@@ -76,7 +77,7 @@ button:hover {
   height: 5.5rem;
   width: 6em;
   text-align: center;
-  background-color: #ff4b4b;
+  background-color: #d61c1c;
   border: 0.1rem solid #ffffff;
   border-radius: 1rem;
   transition: 0.5s ease;
@@ -84,7 +85,7 @@ button:hover {
 
 .delete-btn:hover {
   transition: 0.5s ease;
-  background-color: #f50101;
+  background-color: #f50000;
 }
 </style>
 

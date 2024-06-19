@@ -82,9 +82,9 @@ onMounted(() => {
   align-items: center;
   background: #000;
   border-bottom: #f57732 0.1rem solid;
-  border-radius: 2rem;
+  /*border-radius: 2rem;*/
   padding: 0 2rem;
-  margin: 0.3rem;
+  /*margin: 0.3rem;*/
 }
 .title {
   font-size: x-large;
@@ -94,7 +94,7 @@ onMounted(() => {
 }
 .search{
   padding: 0.5rem;
-  background: rgba(245, 119, 50, 0.51);
+  background: rgb(164, 157, 157);
   color: white;
 
   border: none;
@@ -102,6 +102,8 @@ onMounted(() => {
 
   width: 50%;
   height: 2.5rem;
+  font-size: large;
+  text-align: center;
 }
 .nav {
   display: flex;
@@ -120,14 +122,14 @@ onMounted(() => {
 }
 .btn.logout {
   background-color: #fff;
-  color: #250000;
+  color: black;
   transition: 0.5s ease;
 }
 .btn.logout:hover {
-  background: #780101;
+  background: #9c0303;
   color: white;
 }
 .btn:hover {
-  background-color: #843002;
+  background-color: rgba(245, 119, 50, 0.51);
 }
 </style>

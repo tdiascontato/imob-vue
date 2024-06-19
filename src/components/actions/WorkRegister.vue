@@ -7,7 +7,7 @@
     <form @submit.prevent="handleSubmit">
 
       <label for="title">Título:</label>
-      <input type="text" class="form-back"id="title" v-model="work.title" required />
+      <input type="text" class="form-back" id="title" v-model="work.title" required />
 
       <label for="description">Descrição:</label>
       <textarea class="form-back" id="description" v-model="work.description" required></textarea>
@@ -53,7 +53,11 @@ form input, form textarea{
   margin-bottom: 0.5rem;
 }
 .form-back{
-  background: rgba(248, 204, 179, 0.45);
+  background: #f57732;
+  border: none;
+  color: white;
+  font-size: large;
+  width: 100%;
  }
 button {
   display: inline-block;

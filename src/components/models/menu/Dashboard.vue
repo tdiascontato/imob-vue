@@ -41,6 +41,7 @@
   max-height: 28rem;
   max-width: 20rem;
   border-radius: 0.5rem;
+  border: 0.2rem solid #f57732;
   cursor: pointer;
 }
 .dashboard{

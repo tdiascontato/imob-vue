@@ -66,7 +66,7 @@ onMounted(() => {
   padding: 1rem;
   flex: 1;
   overflow-y: auto;
-
+  background: rgb(164, 157, 157);
 }
 .menu_list {
   display: flex;
