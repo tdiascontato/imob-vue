@@ -35,8 +35,8 @@
 }
 
 .profile-image-preview {
-  max-width: 8.5rem;
-  max-height: 9rem;
+  max-width: 12rem;
+  max-height: 20rem;
   border-radius: 0.5rem;
 }
 

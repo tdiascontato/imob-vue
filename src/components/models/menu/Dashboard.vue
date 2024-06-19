@@ -25,7 +25,7 @@
 <style scoped>
 .container-dashboard{
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: center;
   padding: 5%;
   gap: 10%;
@@ -35,10 +35,11 @@
 .title-dashboard{
   text-align: center;
   cursor: default;
+  font-size: xx-large;
 }
 .user-image{
-  max-height: 20rem;
-  max-width: 14rem;
+  max-height: 28rem;
+  max-width: 20rem;
   border-radius: 0.5rem;
   cursor: pointer;
 }
@@ -47,7 +48,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   gap: 1rem;
 }
 .dashboard-itens{
@@ -81,7 +81,12 @@
   padding: 0.1rem;
   cursor: pointer;
 }
+.column-dashboard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+}
 
 </style>
 

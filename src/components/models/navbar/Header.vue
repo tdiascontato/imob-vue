@@ -52,7 +52,6 @@ onMounted(() => {
 <style scoped>
 .header {
   height: 10vh;
-  min-height: 60px; /* Define a altura mínima */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,6 +59,8 @@ onMounted(() => {
   border-bottom: #f57732 0.1rem solid;
   border-radius: 2rem;
   padding: 0 2rem;
+  margin: 0.3rem;
+
 }
 
 .title {
