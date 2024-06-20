@@ -80,7 +80,7 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #000;
+  background: #cacaca;
   border-bottom: #f57732 0.1rem solid;
   /*border-radius: 2rem;*/
   padding: 0 2rem;
@@ -89,7 +89,7 @@ onMounted(() => {
 .title {
   font-size: x-large;
   font-weight: bold;
-  color: white;
+  color: black;
   text-decoration: none;
 }
 .search{
@@ -118,7 +118,7 @@ onMounted(() => {
   color: white;
   cursor: pointer;
   font-size: medium;
-  transition: 0.5s ease;
+  transition: 0.2s ease;
 }
 .btn.logout {
   background-color: #fff;
@@ -130,6 +130,6 @@ onMounted(() => {
   color: white;
 }
 .btn:hover {
-  background-color: rgba(245, 119, 50, 0.51);
+  scale: 1.03;
 }
 </style>

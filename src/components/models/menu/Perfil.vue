@@ -34,7 +34,7 @@
   gap: 2rem;
   margin-top: 1rem;
   border-radius: 1rem;
-  background: #f57732;
+  background: #cacaca;
 }
 
 .profile-image-preview {
@@ -150,7 +150,7 @@ const handleSubmit = async () => {
             },
           });
           user.value = response.data;
-          router.push('/');
+          window.location.href = '/'
           console.log(user.value)
         } catch (error) {
           router.push('/');

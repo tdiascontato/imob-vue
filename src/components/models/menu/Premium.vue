@@ -50,7 +50,7 @@
   margin-top: 10px;
 }
 .subscription-card {
-  background-color: #f57732;
+  background-color: #cacaca;
   padding: 20px;
   border: none;
   border-radius: 0.5rem;

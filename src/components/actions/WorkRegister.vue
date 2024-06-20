@@ -53,9 +53,9 @@ form input, form textarea{
   margin-bottom: 0.5rem;
 }
 .form-back{
-  background: #f57732;
+  background: #cacaca;
   border: none;
-  color: white;
+  color: black;
   font-size: large;
   width: 100%;
  }

@@ -46,7 +46,7 @@ onMounted(() => {
     effect="coverflow"
     :grabCursor="true"
     :centeredSlides="true"
-    :coverflow-effect="{ depth: 150, rotate: 30, modifier: 0.5, scale: 1.03 }"
+    :coverflow-effect="{ depth: 100, rotate: 30, modifier: 0.5, scale: 1.03 }"
     :autoplay="{ delay: 2500, disableOnInteraction: false, }"
     slidesPerView="auto"
     :loop="true"
@@ -82,27 +82,28 @@ onMounted(() => {
 .mall-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 2rem;
   overflow: hidden;
   scrollbar-width: none;
-  max-height: 25rem;
+  max-height: 22rem;
   max-width: 100%;
 }
 .card-content {
   position: relative;
   width: 100%;
-  height: 25rem;
+  height: 22rem;
 }
 .work-card {
   border: none;
   border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(245, 119, 50, 0.5);
+  box-shadow: 0 0.3rem 0.3rem rgba(202, 202, 202, 0.16);
   cursor: pointer;
   overflow: hidden;
   height: max-content;
 }
 .work-card:hover{
-  box-shadow: 0 1rem 1rem rgba(245, 88, 2, 0.5);
+  scale: 1.03;
 }
 .work-image {
   width: 100%;

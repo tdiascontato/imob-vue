@@ -69,7 +69,7 @@ onUnmounted(() => {
   height: fit-content;
 }
 .premium-section h2 {
-  color: #250000;
+  color: #cacaca;
   width: 15rem;
   text-align: inherit;
 }

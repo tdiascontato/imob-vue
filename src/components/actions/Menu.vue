@@ -66,7 +66,7 @@ onMounted(() => {
   padding: 1rem;
   flex: 1;
   overflow-y: auto;
-  background: rgb(164, 157, 157);
+  background: rgba(248, 113, 41, 0.8);
 }
 .menu_list {
   display: flex;
@@ -81,8 +81,10 @@ onMounted(() => {
   text-align: center;
   border-radius: 0.4rem;
   font-size: large;
+  transition: 0.2s ease;
 }
 .menu_item:hover {
-  background-color: #f57732;
+  transition: 0.2s ease;
+  background-color: #cacaca;
 }
 </style>

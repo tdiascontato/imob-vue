@@ -50,16 +50,16 @@
   flex-direction: column;
   border: none;
   border-radius: 0.5rem;
-  background-color: #ffede2;
-  padding: 0.1rem;
+  background-color: #cacaca;
+  padding: 0.2rem;
   max-width: 15rem;
   max-height: max-content;
-  transition: 0.8s ease;
+  transition: 0.3s ease;
 }
 .work-card:hover{
-  background: #f57732;
-  border: 0.1rem solid white;
-  transition: 0.8s ease;
+  scale: 1.03;
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(202, 202, 202, 0.56);
+  transition: 0.3s ease;
 }
 .work-card img{
   max-width: 15rem;

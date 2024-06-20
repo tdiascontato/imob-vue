@@ -41,7 +41,7 @@
   max-height: 28rem;
   max-width: 20rem;
   border-radius: 0.5rem;
-  border: 0.2rem solid #f57732;
+  border: 0.3rem solid #cacaca;
   cursor: pointer;
 }
 .dashboard{
@@ -60,7 +60,7 @@
   transition: 0.5s ease;
 }
 .dashboard-itens:hover{
-  background: #f57732;
+  background: #cacaca;
   transition: 0.5s ease;
 }
 .dashboard-itens img{
