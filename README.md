@@ -1,39 +1,45 @@
 # imob-vue
+![image](https://github.com/tdiascontato/imob-vue/assets/98658691/7d5697eb-85e6-4ec3-9be9-2488de8861ff)
 
-This template should help get you started developing with Vue 3 in Vite.
+Este é um aplicativo web construído com Vue para um Bakc-End em Rails. A aplicação oferece gerenciamento de perfis de usuário, incluindo upload imagens tratadas e gerenciamento de assinaturas.
 
-## Recommended IDE Setup
+* Funcionalidades
+- Autenticação de Usuário
+- Logs para depurações
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+* Gerenciamento de Perfil
+- Atualizar informações do perfil
+- Upload e compressão de imagens de perfil
+- Gerenciamento de Assinaturas
+- Visualizar e gerenciar planos de assinatura
+- Funcionalidades diferentes por planos
 
-## Type Support for `.vue` Imports in TS
+## Instalação
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+1. **Clone o repositório:**
+   ```sh
+   git clone https://github.com/tdiascontato/imob-vue.git
+   cd imob-vue
+   ```
 
-## Customize configuration
+2. **Instale as dependências:**
+   ```sh
+   npm i
+   ```
+   
+## Uso
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+1. **Inicie o servidor Rails:**
+   ```sh
+   npm run dev
+   ```
 
-## Project Setup
+2. **Abra o navegador e acesse:**
+   ```
+   http://localhost:5173
+   ```
 
-```sh
-npm install
-```
+## Estrutura do Projeto
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+### Back-End em Rails presente em https://github.com/tdiascontato/imob-rails/
+![image](https://github.com/tdiascontato/imob-vue/assets/98658691/3da89ae4-eba6-4db6-9e70-a74739a3a339)
